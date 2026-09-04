@@ -55,8 +55,11 @@ class RedBlackTree:
             y = x
             if node.data < x.data:
                 x = x.left
-            else:
+            elif node.data > x.data:
                 x = x.right
+            else:
+                # 重复节点直接忽略，保持严格 BST 性质
+                return
 
         node.parent = y
         if y is None:
